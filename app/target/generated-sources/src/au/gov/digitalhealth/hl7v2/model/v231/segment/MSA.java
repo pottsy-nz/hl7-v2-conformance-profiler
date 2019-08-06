@@ -1,0 +1,401 @@
+/*
+ * This class is an auto-generated source file for a HAPI
+ * HL7 v2.x standard structure class.
+ *
+ * For more information, visit: http://hl7api.sourceforge.net/
+ * 
+ * The contents of this file are subject to the Mozilla Public License Version 1.1 
+ * (the "License"); you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at http://www.mozilla.org/MPL/ 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for the 
+ * specific language governing rights and limitations under the License. 
+ * 
+ * The Original Code is "[file_name]".  Description: 
+ * "[one_line_description]" 
+ * 
+ * The Initial Developer of the Original Code is University Health Network. Copyright (C) 
+ * 2012.  All Rights Reserved. 
+ * 
+ * Contributor(s): ______________________________________. 
+ * 
+ * Alternatively, the contents of this file may be used under the terms of the 
+ * GNU General Public License (the  "GPL"), in which case the provisions of the GPL are 
+ * applicable instead of those above.  If you wish to allow use of your version of this 
+ * file only under the terms of the GPL and not to allow others to use your version 
+ * of this file under the MPL, indicate your decision by deleting  the provisions above 
+ * and replace  them with the notice and other provisions required by the GPL License.  
+ * If you do not delete the provisions above, a recipient may use your version of 
+ * this file under either the MPL or the GPL. 
+ * 
+ */
+
+
+package au.gov.digitalhealth.hl7v2.model.v231.segment;
+
+// import au.gov.digitalhealth.hl7v2.model.v231.group.*;
+import ca.uhn.hl7v2.model.v231.datatype.*;
+import ca.uhn.hl7v2.HL7Exception;
+import ca.uhn.hl7v2.parser.ModelClassFactory;
+import ca.uhn.hl7v2.parser.DefaultModelClassFactory;
+import ca.uhn.hl7v2.model.AbstractMessage;
+import ca.uhn.hl7v2.model.Group;
+import ca.uhn.hl7v2.model.Type;
+import ca.uhn.hl7v2.model.AbstractSegment;
+import ca.uhn.hl7v2.model.Varies;
+
+
+/**
+ *<p>Represents an HL7 MSA message segment (message acknowledgment segment). 
+ * This segment has the following fields:</p>
+ * <ul>
+     * <li>MSA-1: Acknowledgment Code (ID) <b> </b>
+     * <li>MSA-2: Message Control ID (ST) <b> </b>
+     * <li>MSA-3: Text Message (ST) <b>optional </b>
+     * <li>MSA-4: Expected Sequence Number (NM) <b>optional repeating</b>
+     * <li>MSA-5: Delayed Acknowledgment Type (ID) <b>optional repeating</b>
+     * <li>MSA-6: Error Condition (CE) <b>optional </b>
+ * </ul>
+ */
+@SuppressWarnings("unused")
+public class MSA extends AbstractSegment {
+
+    /** 
+     * Creates a new MSA segment
+     */
+    public MSA(Group parent, ModelClassFactory factory) {
+       super(parent, factory);
+       init(factory);
+    }
+
+    private void init(ModelClassFactory factory) {
+       try {
+                                              this.add(ID.class, true, 1, 2, new Object[]{ getMessage(), new Integer(8) }, "Acknowledgment Code");
+                                  this.add(ST.class, true, 1, 40, new Object[]{ getMessage() }, "Message Control ID");
+                                  this.add(ST.class, false, 1, 80, new Object[]{ getMessage() }, "Text Message");
+                                  this.add(NM.class, false, -1, 15, new Object[]{ getMessage() }, "Expected Sequence Number");
+                                              this.add(ID.class, false, -1, 1, new Object[]{ getMessage(), new Integer(102) }, "Delayed Acknowledgment Type");
+                                  this.add(CE.class, false, 1, 113, new Object[]{ getMessage() }, "Error Condition");
+       } catch(HL7Exception e) {
+          log.error("Unexpected error creating MSA - this is probably a bug in the source code generator.", e);
+       }
+    }
+
+
+
+    /**
+     * Returns
+     * MSA-1: "Acknowledgment Code" - creates it if necessary
+     */
+    public ID getAcknowledgmentCode() { 
+		ID retVal = this.getTypedField(1, 0);
+		return retVal;
+    }
+    
+    /**
+     * Returns
+     * MSA-1: "Acknowledgment Code" - creates it if necessary
+     */
+    public ID getMsa1_AcknowledgmentCode() { 
+		ID retVal = this.getTypedField(1, 0);
+		return retVal;
+    }
+
+
+
+    /**
+     * Returns
+     * MSA-2: "Message Control ID" - creates it if necessary
+     */
+    public ST getMessageControlID() { 
+		ST retVal = this.getTypedField(2, 0);
+		return retVal;
+    }
+    
+    /**
+     * Returns
+     * MSA-2: "Message Control ID" - creates it if necessary
+     */
+    public ST getMsa2_MessageControlID() { 
+		ST retVal = this.getTypedField(2, 0);
+		return retVal;
+    }
+
+
+
+    /**
+     * Returns
+     * MSA-3: "Text Message" - creates it if necessary
+     */
+    public ST getTextMessage() { 
+		ST retVal = this.getTypedField(3, 0);
+		return retVal;
+    }
+    
+    /**
+     * Returns
+     * MSA-3: "Text Message" - creates it if necessary
+     */
+    public ST getMsa3_TextMessage() { 
+		ST retVal = this.getTypedField(3, 0);
+		return retVal;
+    }
+
+
+    /**
+     * Returns all repetitions of Expected Sequence Number (MSA-4).
+     */
+    public NM[] getExpectedSequenceNumber() {
+    	NM[] retVal = this.getTypedField(4, new NM[0]);
+    	return retVal;
+    }
+
+
+    /**
+     * Returns all repetitions of Expected Sequence Number (MSA-4).
+     */
+    public NM[] getMsa4_ExpectedSequenceNumber() {
+    	NM[] retVal = this.getTypedField(4, new NM[0]);
+    	return retVal;
+    }
+
+
+    /**
+     * Returns a count of the current number of repetitions of Expected Sequence Number (MSA-4).
+     * This method does not create a repetition, so if no repetitions have currently been defined or accessed,
+     * it will return zero.
+     */
+    public int getExpectedSequenceNumberReps() {
+    	return this.getReps(4);
+    }
+
+
+    /**
+     * Returns a specific repetition of
+     * MSA-4: "Expected Sequence Number" - creates it if necessary
+     *
+     * @param rep The repetition index (0-indexed)
+     */
+    public NM getExpectedSequenceNumber(int rep) { 
+		NM retVal = this.getTypedField(4, rep);
+		return retVal;
+    }
+
+    /**
+     * Returns a specific repetition of
+     * MSA-4: "Expected Sequence Number" - creates it if necessary
+     *
+     * @param rep The repetition index (0-indexed)
+     */
+    public NM getMsa4_ExpectedSequenceNumber(int rep) { 
+		NM retVal = this.getTypedField(4, rep);
+		return retVal;
+    }
+
+    /**
+     * Returns a count of the current number of repetitions of Expected Sequence Number (MSA-4).
+     * This method does not create a repetition, so if no repetitions have currently been defined or accessed,
+     * it will return zero.
+     */
+    public int getMsa4_ExpectedSequenceNumberReps() {
+    	return this.getReps(4);
+    }
+
+
+    /**
+     * Inserts a repetition of
+     * MSA-4: "Expected Sequence Number" at a specific index
+     *
+     * @param rep The repetition index (0-indexed)
+     * @throws HL7Exception If the rep is invalid (below 0, or too high for the allowable repetitions)
+     */
+    public NM insertExpectedSequenceNumber(int rep) throws HL7Exception { 
+        return (NM) super.insertRepetition(4, rep);
+    }
+
+
+    /**
+     * Inserts a repetition of
+     * MSA-4: "Expected Sequence Number" at a specific index
+     *
+     * @param rep The repetition index (0-indexed)
+     * @throws HL7Exception If the rep is invalid (below 0, or too high for the allowable repetitions)
+     */
+    public NM insertMsa4_ExpectedSequenceNumber(int rep) throws HL7Exception { 
+        return (NM) super.insertRepetition(4, rep);
+    }
+
+
+    /**
+     * Removes a repetition of
+     * MSA-4: "Expected Sequence Number" at a specific index
+     *
+     * @param rep The repetition index (0-indexed)
+     * @throws HL7Exception If the rep is invalid (below 0, or too high for the allowable repetitions)
+     */
+    public NM removeExpectedSequenceNumber(int rep) throws HL7Exception { 
+        return (NM) super.removeRepetition(4, rep);
+    }
+
+
+    /**
+     * Removes a repetition of
+     * MSA-4: "Expected Sequence Number" at a specific index
+     *
+     * @param rep The repetition index (0-indexed)
+     * @throws HL7Exception If the rep is invalid (below 0, or too high for the allowable repetitions)
+     */
+    public NM removeMsa4_ExpectedSequenceNumber(int rep) throws HL7Exception { 
+        return (NM) super.removeRepetition(4, rep);
+    }
+
+
+
+    /**
+     * Returns all repetitions of Delayed Acknowledgment Type (MSA-5).
+     */
+    public ID[] getDelayedAcknowledgmentType() {
+    	ID[] retVal = this.getTypedField(5, new ID[0]);
+    	return retVal;
+    }
+
+
+    /**
+     * Returns all repetitions of Delayed Acknowledgment Type (MSA-5).
+     */
+    public ID[] getMsa5_DelayedAcknowledgmentType() {
+    	ID[] retVal = this.getTypedField(5, new ID[0]);
+    	return retVal;
+    }
+
+
+    /**
+     * Returns a count of the current number of repetitions of Delayed Acknowledgment Type (MSA-5).
+     * This method does not create a repetition, so if no repetitions have currently been defined or accessed,
+     * it will return zero.
+     */
+    public int getDelayedAcknowledgmentTypeReps() {
+    	return this.getReps(5);
+    }
+
+
+    /**
+     * Returns a specific repetition of
+     * MSA-5: "Delayed Acknowledgment Type" - creates it if necessary
+     *
+     * @param rep The repetition index (0-indexed)
+     */
+    public ID getDelayedAcknowledgmentType(int rep) { 
+		ID retVal = this.getTypedField(5, rep);
+		return retVal;
+    }
+
+    /**
+     * Returns a specific repetition of
+     * MSA-5: "Delayed Acknowledgment Type" - creates it if necessary
+     *
+     * @param rep The repetition index (0-indexed)
+     */
+    public ID getMsa5_DelayedAcknowledgmentType(int rep) { 
+		ID retVal = this.getTypedField(5, rep);
+		return retVal;
+    }
+
+    /**
+     * Returns a count of the current number of repetitions of Delayed Acknowledgment Type (MSA-5).
+     * This method does not create a repetition, so if no repetitions have currently been defined or accessed,
+     * it will return zero.
+     */
+    public int getMsa5_DelayedAcknowledgmentTypeReps() {
+    	return this.getReps(5);
+    }
+
+
+    /**
+     * Inserts a repetition of
+     * MSA-5: "Delayed Acknowledgment Type" at a specific index
+     *
+     * @param rep The repetition index (0-indexed)
+     * @throws HL7Exception If the rep is invalid (below 0, or too high for the allowable repetitions)
+     */
+    public ID insertDelayedAcknowledgmentType(int rep) throws HL7Exception { 
+        return (ID) super.insertRepetition(5, rep);
+    }
+
+
+    /**
+     * Inserts a repetition of
+     * MSA-5: "Delayed Acknowledgment Type" at a specific index
+     *
+     * @param rep The repetition index (0-indexed)
+     * @throws HL7Exception If the rep is invalid (below 0, or too high for the allowable repetitions)
+     */
+    public ID insertMsa5_DelayedAcknowledgmentType(int rep) throws HL7Exception { 
+        return (ID) super.insertRepetition(5, rep);
+    }
+
+
+    /**
+     * Removes a repetition of
+     * MSA-5: "Delayed Acknowledgment Type" at a specific index
+     *
+     * @param rep The repetition index (0-indexed)
+     * @throws HL7Exception If the rep is invalid (below 0, or too high for the allowable repetitions)
+     */
+    public ID removeDelayedAcknowledgmentType(int rep) throws HL7Exception { 
+        return (ID) super.removeRepetition(5, rep);
+    }
+
+
+    /**
+     * Removes a repetition of
+     * MSA-5: "Delayed Acknowledgment Type" at a specific index
+     *
+     * @param rep The repetition index (0-indexed)
+     * @throws HL7Exception If the rep is invalid (below 0, or too high for the allowable repetitions)
+     */
+    public ID removeMsa5_DelayedAcknowledgmentType(int rep) throws HL7Exception { 
+        return (ID) super.removeRepetition(5, rep);
+    }
+
+
+
+
+    /**
+     * Returns
+     * MSA-6: "Error Condition" - creates it if necessary
+     */
+    public CE getErrorCondition() { 
+		CE retVal = this.getTypedField(6, 0);
+		return retVal;
+    }
+    
+    /**
+     * Returns
+     * MSA-6: "Error Condition" - creates it if necessary
+     */
+    public CE getMsa6_ErrorCondition() { 
+		CE retVal = this.getTypedField(6, 0);
+		return retVal;
+    }
+
+
+
+
+
+    /** {@inheritDoc} */   
+    protected Type createNewTypeWithoutReflection(int field) {
+       switch (field) {
+          case 0: return new ID(getMessage(), new Integer( 8 ));
+          case 1: return new ST(getMessage());
+          case 2: return new ST(getMessage());
+          case 3: return new NM(getMessage());
+          case 4: return new ID(getMessage(), new Integer( 102 ));
+          case 5: return new CE(getMessage());
+          default: return null;
+       }
+   }
+
+
+}
+

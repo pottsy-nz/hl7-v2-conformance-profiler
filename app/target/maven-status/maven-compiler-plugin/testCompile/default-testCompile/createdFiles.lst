@@ -1,0 +1,4 @@
+au\gov\digitalhealth\hl7v2\ConformanceProfilerTest.class
+au\gov\digitalhealth\hl7v2\ProfileValidatorTest.class
+au\gov\digitalhealth\net\RestClientTest.class
+au\gov\digitalhealth\hl7v2\ProfileSourceCodeGeneratorTest.class

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Specification SpecName="v231_code_store" OrgName="Australian Digital Health Agency" HL7Version="2.3.1" SpecVersion="1.0" Status="Active" ConformanceType="HL7" Role="Receiver" HL7OID="" ProcRule="HL7">
+
+	<Conformance AccAck="NE" AppAck="AL" StaticID="{ConfSig(1) Australian Digital Health Agency(1) 2.3.1(6) static-profile(1) MDM(27) T02(258) null(0) MDM_T02(58) 1.0(1) Sender(1)}" DynamicID="{ConfSig(1) Australian Digital Health Agency(1) 2.3.1(6) dynamic-profile(2) AccNE_AppAL(2) defer_mode_ack(1)}" MsgAckMode="Deferred" QueryStatus="Event" QueryMode="Non Query"></Conformance><Encodings><Encoding>ER7</Encoding></Encodings>
+
+<hl7tables>
+	<hl7table id="0001" name="Administrative Sex" codesys="2.16.840.1.113883.13.68" type="USER">
+		<tableElement order="1" code="M" description="Male" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.2.8" />
+		<tableElement order="2" code="F" description="Female" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.2.8" />
+		<tableElement order="3" code="I" description="Indeterminate or Intersex" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.2.8" />
+		<tableElement order="4" code="N" description="Not stated/Inadequately described" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.2.8" />
+	</hl7table>
+	<hl7table id="0003" name="Event type" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="258" code="T02" description="MDM/ACK - Original document notification and content" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.2" />
+	</hl7table>
+	<hl7table id="0004" name="Patient Class" codesys="HL7 Defined Codes - HL7nnn" type="USER">
+		<tableElement order="1" code="S" description="Same day patient" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.3.2" />
+		<tableElement order="2" code="C" description="Commercial account" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.3.2" />
+		<tableElement order="3" code="E" description="Emergency patient" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.3.2" />
+		<tableElement order="4" code="I" description="Inpatient/overnight patient" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.3.2" />
+		<tableElement order="5" code="N" description="Not-applicable" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.3.2" />
+		<tableElement order="6" code="O" description="Outpatient" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.3.2" />
+		<tableElement order="7" code="P" description="Pre-admit" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.3.2" />
+        <tableElement order="8" code="U" description="Unknown" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.3.2" />
+        <tableElement order="9" code="Y" description="Community client" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="3.4.3.2" />
+	</hl7table>
+	<hl7table id="0008" name="Acknowledgment code" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="AA" description="Original mode: Application Accept - Enhanced mode: Application acknowledgment: Accept" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.8.1" />
+		<tableElement order="2" code="AE" description="Original mode: Application Error - Enhanced mode: Application acknowledgment: Error" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.8.1" />
+		<tableElement order="3" code="AR" description="Original mode: Application Reject - Enhanced mode: Application acknowledgment: Reject" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.8.1" />
+		<tableElement order="4" code="CA" description="Enhanced mode: Accept acknowledgment: Commit Accept" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.8.1" />
+		<tableElement order="5" code="CE" description="Enhanced mode: Accept acknowledgment: Commit Error" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.8.1" />
+		<tableElement order="6" code="CR" description="Enhanced mode: Accept acknowledgment: Commit Reject" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.8.1" />
+	</hl7table>
+	<hl7table id="0076" name="Message type" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="MDM" description="Medical document management" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.1" />
+		<tableElement order="2" code="ACK" description="Acknowledgement" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.1" />
+	</hl7table>
+	<hl7table id="0085" name="Observation result status codes interpretation" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="3" code="F" description="Final results; Can only be changed with a corrected result." displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.11" />
+	</hl7table>
+	<hl7table id="0103" name="Processing ID" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="D" description="Debugging" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.57.1" />
+		<tableElement order="2" code="P" description="Production" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.57.1" />
+		<tableElement order="3" code="T" description="Training" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.57.1" />
+	</hl7table>
+	<hl7table id="0104" name="Version ID" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="2.3.1" description="Release 2.3.1" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.9.12" />
+	</hl7table>
+	<hl7table id="0125" name="Value type" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="AD" description="Address" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="2" code="CE" description="Coded Entry" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="3" code="CF" description="Coded Element With Formatted Values" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="4" code="CK" description="Composite ID With Check Digit" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="5" code="CN" description="Composite ID And Name" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="6" code="CP" description="Composite Price" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="7" code="CX" description="Extended Composite ID With Check Digit" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="8" code="DT" description="Date" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="9" code="ED" description="Encapsulated Data" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="10" code="FT" description="Formatted Text (Display)" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="11" code="MO" description="Money" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="12" code="NM" description="Numeric" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="13" code="PN" description="Person Name" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="14" code="RP" description="Reference Pointer" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="15" code="SN" description="Structured Numeric" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="16" code="ST" description="String Data." displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="17" code="TM" description="Time" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="18" code="TN" description="Telephone Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="19" code="TS" description="Time Stamp (Date &amp; Time)" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="20" code="TX" description="Text Data (Display)" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="21" code="XAD" description="Extended Address" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="22" code="XCN" description="Extended Composite Name And Number For Persons" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="23" code="XON" description="Extended Composite Name And Number For Organizations" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="24" code="XPN" description="Extended Person Name" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="25" code="XTN" description="Extended Telecommunications Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="26" code="DR" description="Date/Time range" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+		<tableElement order="27" code="EI" description="Entity Identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="7.4.2.2" />
+	</hl7table>
+	<hl7table id="0155" name="Accept/application acknowledgment conditions" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="AL" description="Always" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.9.16" />
+	</hl7table>
+	<hl7table id="0191" name="Type of referenced data" codesys="HL7 Defined Codes - HL7nnn" type="USER">
+        <tableElement order="1" code="AP" description="Application data, typically uninterpreted binary data" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="9.6.1.3" />
+        <tableElement order="2" code="application" description="Application data, typically uninterpreted binary data" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="9.6.1.3" />
+	</hl7table>
+	<hl7table id="0203" name="Identifier type" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="AM" description="American Express" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="2" code="AN" description="Account number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="3" code="ANC" description="Account number Creditor" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="4" code="AND" description="Account number debitor" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="5" code="ANON" description="Anonymous identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="6" code="ANT" description="Temporary Account Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="7" code="APRN" description="Advanced Practice Registered Nurse number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="8" code="BA" description="Bank Account Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="9" code="BC" description="Bank Card Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="10" code="BR" description="Birth registry number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="11" code="BRN" description="Breed Registry Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="12" code="CC" description="Cost Center number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="13" code="CY" description="County number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="14" code="DDS" description="Dentist license number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="15" code="DEA" description="Drug Enforcement Administration registration number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="16" code="DFN" description="Drug Furnishing or prescriptive authority Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="17" code="DI" description="Diner&apos;s Club card" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="18" code="DL" description="Driver&apos;s license number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="19" code="DN" description="Doctor number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="20" code="DO" description="Osteopathic License number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="21" code="DPM" description="Podiatrist license number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="22" code="DR" description="Donor Registration Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="23" code="DS" description="Discover Card" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="24" code="EI" description="Employee number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="25" code="EN" description="Employer number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="26" code="FI" description="Facility ID" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="27" code="GI" description="Guarantor internal identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="28" code="GL" description="General ledger number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="29" code="GN" description="Guarantor external  identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="30" code="HC" description="Health Card Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="31" code="IND" description="Indigenous/Aboriginal" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="32" code="JHN" description="Jurisdictional health number (Canada)" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="33" code="LI" description="Labor and industries number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="34" code="LN" description="License number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="35" code="LR" description="Local Registry ID" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="36" code="MA" description="Patient Medicaid number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="37" code="MB" description="Member Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="38" code="MC" description="Patient Medicare number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="39" code="MCD" description="Practitioner Medicaid number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="40" code="MCN" description="Microchip Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="41" code="MCR" description="Practitioner Medicare number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="42" code="MD" description="Medical License number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="43" code="MI" description="Military ID number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="44" code="MR" description="Medical record number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="45" code="MRT" description="Temporary Medical Record Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="46" code="MS" description="MasterCard" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="47" code="NE" description="National employer identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="48" code="NH" description="National Health Plan Identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="49" code="NI" description="National unique individual identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="50" code="NII" description="National Insurance Organization Identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="51" code="NIIP" description="National Insurance Payor Identifier (Payor)" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="52" code="NNxxx" description="National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="53" code="NP" description="Nurse practitioner number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="54" code="NPI" description="National provider identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="55" code="OD" description="Optometrist license number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="56" code="PA" description="Physician Assistant number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="57" code="PCN" description="Penitentiary/correctional institution Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="58" code="PE" description="Living Subject Enterprise Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="59" code="PEN" description="Pension Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="60" code="PI" description="Patient internal identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="61" code="PN" description="Person number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="62" code="PNT" description="Temporary Living Subject Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="63" code="PPN" description="Passport number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="64" code="PRC" description="Permanent Resident Card Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="65" code="PRN" description="Provider number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="66" code="PT" description="Patient external identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="67" code="QA" description="QA number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="68" code="RI" description="Resource identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="69" code="RN" description="Registered Nurse Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="70" code="RPH" description="Pharmacist license number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="71" code="RR" description="Railroad Retirement number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="72" code="RRI" description="Regional registry ID" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="73" code="SL" description="State license" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="74" code="SN" description="Subscriber Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="75" code="SR" description="State registry ID" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="76" code="SS" description="Social Security number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="77" code="TAX" description="Tax ID number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="78" code="TN" description="Treaty Number/ (Canada)" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="79" code="U" description="Unspecified identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="80" code="UPIN" description="Medicare/CMS (formerly HCFA) Universal Physician Identification numbers" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="81" code="VN" description="Visit number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="82" code="VS" description="VISA" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="83" code="WC" description="WIC identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="84" code="WCN" description="Workers Comp Number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+		<tableElement order="85" code="XX" description="Organization identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.14.5" />
+	</hl7table>
+	<hl7table id="0270" name="Document Type" codesys="HL7 Defined Codes - HL7nnn" type="USER">
+		<tableElement order="1" code="NEHTA" description="NEHTA defined document" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="" />
+    </hl7table>
+	<hl7table id="0271" name="Document completion status" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="AU" description="Authenticated" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="9.6.1.17" />
+		<tableElement order="2" code="DI" description="Dictated" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="9.6.1.17" />
+		<tableElement order="3" code="DO" description="Documented" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="9.6.1.17" />
+		<tableElement order="4" code="IN" description="Incomplete" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="9.6.1.17" />
+		<tableElement order="5" code="IP" description="In Progress" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="9.6.1.17" />
+		<tableElement order="6" code="LA" description="Legally authenticated" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="9.6.1.17" />
+		<tableElement order="7" code="PA" description="Pre-authenticated" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="9.6.1.17" />
+	</hl7table>
+	<hl7table id="0291" name="Subtype of referenced data" codesys="HL7 Defined Codes - HL7nnn" type="USER">
+		<tableElement order="1" code="zip" description="Zipped CDA document" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.65.4" />
+    </hl7table>
+	<hl7table id="0299" name="Encoding" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="Base64" description="Encoding as defined by MIME (Multipurpose Internet Mail Extensions) standard RFC 1521. Four consecutive ASCII characters represent three consecutive octets of binary data. Base64 utilizes a 65-character subset of US-ASCII, consisting of both the upper and" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.24.4" />
+	</hl7table>
+	<hl7table id="0300" name="Namespace ID" codesys="HL7 Defined Codes - HL7nnn" type="USER">
+		<tableElement order="1" code="..." description="No suggested values defined" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.1" />
+	</hl7table>
+	<hl7table id="0301" name="Universal ID type" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="DNS" description="An Internet dotted name. Either in ASCII or as integers" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+		<tableElement order="2" code="GUID" description="Same as UUID." displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+		<tableElement order="3" code="HCD" description="The CEN Healthcare Coding Scheme Designator. (Identifiers used in DICOM follow this assignment scheme.)" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+		<tableElement order="4" code="HL7" description="Reserved for future HL7 registration schemes" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+		<tableElement order="5" code="ISO" description="An International Standards Organization Object Identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+		<tableElement order="6" code="L,M,N" description="These are reserved for locally defined coding schemes." displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+		<tableElement order="7" code="Random" description="Usually a base64 encoded string of random bits.&lt;p&gt;The uniqueness depends on the length of the bits. Mail systems often generate ASCII string _??unique names,&quot; from a combination of random bits and system names. Obviously, such identifiers will not be cons" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+		<tableElement order="8" code="URI" description="Uniform Resource Identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+		<tableElement order="9" code="UUID" description="The DCE Universal Unique Identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+		<tableElement order="10" code="x400" description="An X.400 MHS format identifier" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+		<tableElement order="11" code="x500" description="An X.500 directory name" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.A.1.33.3" />
+	</hl7table>
+	<hl7table id="0354" name="Message structure" codesys="HL7 Defined Codes - HL7nnn" type="HL7">
+		<tableElement order="1" code="MDM_T02" description="MSH,EVN,PID,PV1,TXA,OBX" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.3" />
+		<tableElement order="2" code="ACK_T02" description="MSH,MSA,[ERR]" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.3" />
+	</hl7table>
+    <hl7table id="0363" name="Assigning Authority" codesys="HL7 Defined Codes - HL7nnn" type="USER">
+		<tableElement order="1" code="AUSHIC" description="Medicare Australia" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="" />
+        <tableElement order="2" code="AUSDVA" description="Department of Veterans Affairs" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="" />
+        <tableElement order="3" code="AUSNATA" description="National Association of Testing Authorities, Australia" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="" />
+        <tableElement order="4" code="AUSLINK" description="Australian CentreLink" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="" />
+        <tableElement order="5" code="AUSHICPR" description="Medicare Australia provider number" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="" />
+	</hl7table>
+	<hl7table id="0396" name="Coding system" codesys="HL7 Defined Codes - HL7nnn" type="USER">
+		<tableElement order="1" code="99zzz" description="Local general code (where z is an alphanumeric character)" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="2" code="L" description="Local general code" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="3" code="DCM" description="DICOM Controlled Terminology" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="4" code="I10" description="ICD-10" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="5" code="ICD10AM" description="ICD-10 Australian modification" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="6" code="ISO3166" description="Country codes" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="7" code="ISO+" description="ISO 2955.83 (units of measure) with HL7 extensions" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="8" code="IUPP" description="IUPAC/IFCC Property Codes" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="9" code="LN" description="Logical Observation Identifier Names and Codes (LOINC__)" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="10" code="SCT" description="SNOMED Clinical Terms" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="11" code="UCUM" description=" UCUM code set for units of measure" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="12" code="AUSPDI" description="Australian Pathology Display Interface (Display Segment)" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="13" code="HL7AU" description="HL7 Australia" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="14" code="ROLECODE" description="Participation Mode" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="15" code="PHENX" description="PhenX ID" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="16" code="DOCLE" description="Doctor Command Language" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="17" code="EN13606" description="CEN 13606" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+	</hl7table>
+    <hl7table id="3166" name="Country Code" codesys="ISO3166" type="ISO">
+		<tableElement order="1" code="AUS" description="Australia" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="" />
+	</hl7table>
+	<hl7table id="SPDI" name="Australian Pathology Display Interface (Display Segment)" codesys="AUSPDI" type="Local">
+		<tableElement order="1" code="PDF" description="Portable Document Format" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.9.21" />
+		<tableElement order="2" code="HTML" description="Hypertext Markup Language" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.9.21" />
+		<tableElement order="3" code="RTF" description="Rich Text Format" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.9.21" />
+		<tableElement order="4" code="TXT" description="Plain Text" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.15.9.21" />
+	</hl7table>
+</hl7tables>
+
+</Specification>
+
