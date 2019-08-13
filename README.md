@@ -27,19 +27,19 @@ Validates a HL7 data against an XML profile definition and code set. There is no
 ```
 ### hl7.v24.ref.i12
 ```bash
-~/app $ java -cp "target/hl7v2-1.0-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ConformanceProfiler hl7.v24.ref.i12
+~/app $ java -cp "target/hl7v2-1.1-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ConformanceProfiler hl7.v24.ref.i12
 ```
 ### hl7.v24.rri.i12
 ```bash
-~/app $ java -cp "target/hl7v2-1.0-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ConformanceProfiler hl7.v24.rri.i12
+~/app $ java -cp "target/hl7v2-1.1-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ConformanceProfiler hl7.v24.rri.i12
 ```
 ### hl7.v231.mdm.t02
 ```bash
-~/app $ java -cp "target/hl7v2-1.0-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ConformanceProfiler hl7.v231.mdm.t02
+~/app $ java -cp "target/hl7v2-1.1-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ConformanceProfiler hl7.v231.mdm.t02
 ```
 ### hl7.v231.ack.t02
 ```bash
-~/app $ java -cp "target/hl7v2-1.0-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ConformanceProfiler hl7.v231.ack.t02
+~/app $ java -cp "target/hl7v2-1.1-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ConformanceProfiler hl7.v231.ack.t02
 ```
 
 The instructions below provides an outline on how to generate new model source code. _(not required - for information only)_ 
@@ -57,19 +57,19 @@ Usage: java ProfileSourceCodeGenerator [hl7.<version>.<message-type>.<event-type
 ```
 #### hl7.v24.ref.i12
 ```bash
-~/app $ java -cp "target/hl7v2-1.0-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ProfileSourceCodeGenerator hl7.v24.ref.i12
+~/app $ java -cp "target/hl7v2-1.1-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ProfileSourceCodeGenerator hl7.v24.ref.i12
 ```
 #### hl7.v24.rri.i12
 ```bash
-~/app $ java -cp "target/hl7v2-1.0-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ProfileSourceCodeGenerator hl7.v24.rri.i12
+~/app $ java -cp "target/hl7v2-1.1-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ProfileSourceCodeGenerator hl7.v24.rri.i12
 ```
 #### hl7.v231.mdm.t02
 ```bash
-~/app $ java -cp "target/hl7v2-1.0-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ProfileSourceCodeGenerator hl7.v231.mdm.t02
+~/app $ java -cp "target/hl7v2-1.1-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ProfileSourceCodeGenerator hl7.v231.mdm.t02
 ```
 #### hl7.v231.ack.t02
 ```bash
-~/app $ java -cp "target/hl7v2-1.0-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ProfileSourceCodeGenerator hl7.v231.ack.t02
+~/app $ java -cp "target/hl7v2-1.1-SNAPSHOT.jar;target/dependency/*" au.gov.digitalhealth.hl7v2.ProfileSourceCodeGenerator hl7.v231.ack.t02
 ```
 
 ### 3. Compile profile source code 

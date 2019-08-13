@@ -114,7 +114,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
     protected void checkEventType(String evType, StaticDef profile, List<HL7Exception> exList) throws HL7Exception {
         if (!evType.equals(profile.getEventType())
                 && !profile.getEventType().equalsIgnoreCase("ALL")) {
-            HL7Exception e = new ProfileNotFollowedException("Event type " + evType
+            HL7Exception e = new ProfileNotFollowedException("Error: Event type " + evType
                     + " doesn't match profile type of " + profile.getEventType());
             exList.add(e);
         }
@@ -122,7 +122,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 
     protected void checkMessageType(String msgType, StaticDef profile, List<HL7Exception> exList) throws HL7Exception {
         if (!msgType.equals(profile.getMsgType())) {
-            HL7Exception e = new ProfileNotFollowedException("Message type " + msgType
+            HL7Exception e = new ProfileNotFollowedException("Error: Message type " + msgType
                     + " doesn't match profile type of " + profile.getMsgType());
             exList.add(e);
         }
@@ -130,7 +130,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 
     protected void checkMessageStructure(String msgStruct, StaticDef profile, List<HL7Exception> exList) {
         if (msgStruct == null || !msgStruct.equals(profile.getMsgStructID())) {
-            HL7Exception e = new ProfileNotFollowedException("Message structure " + msgStruct
+            HL7Exception e = new ProfileNotFollowedException("Error: Message structure " + msgStruct
                     + " doesn't match profile type of " + profile.getMsgStructID());
             exList.add(e);
         }
@@ -174,7 +174,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 					}
 
 				} catch (HL7Exception he) {
-					exList.add(new ProfileNotHL7CompliantException(struct.getName()
+					exList.add(new ProfileNotHL7CompliantException("Error: "+struct.getName()
 							+ " not found in message"));
 				}
 			}
@@ -198,7 +198,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 			if (!allowedStructures.contains(childName)) {
 				try {
 					for (Structure rep : group.getAll(childName)) {
-                        HL7Exception e = new XElementPresentException("The structure "
+                        HL7Exception e = new XElementPresentException("Error: The structure "
                                 + childName + " appears in the message but not in the profile");
                         exList.add(e);
 					}
@@ -224,10 +224,10 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 	protected HL7Exception testCardinality(int reps, int min, int max, String usage, String name, List<HL7Exception> exList) {
 		HL7Exception e = null;
 		if (reps < min && usage.equalsIgnoreCase("R")) {
-            e = new ProfileNotFollowedException(name + " must have at least " + min
+            e = new ProfileNotFollowedException("Error: "+ name + " must have at least " + min
 					+ " repetitions (has " + reps + ")");
 		} else if (max > 0 && reps > max) {
-            e = new ProfileNotFollowedException(name + " must have no more than " + max
+            e = new ProfileNotFollowedException("Error: " + name + " must have no more than " + max
 					+ " repetitions (has " + reps + ")");
 		}
         if (e != null) exList.add(e);
@@ -246,7 +246,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 				exList.addAll(doTestSegment((Segment) s, (Seg) profile, profileID, validateChildren));
 			} else {
 				exList.add(new ProfileNotHL7CompliantException(
-						"Mismatch between a segment in the profile and the structure "
+						"Error: Mismatch between a segment in the profile and the structure "
 								+ s.getClass().getName() + " in the message"));
 			}
 		} else if (profile instanceof SegGroup) {
@@ -254,7 +254,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
                 exList.addAll(testGroup((Group) s, (SegGroup) profile, profileID));
 			} else {
 				exList.add(new ProfileNotHL7CompliantException(
-						"Mismatch between a group in the profile and the structure "
+						"Error: Mismatch between a group in the profile and the structure "
 								+ s.getClass().getName() + " in the message"));
 			}
 		}
@@ -311,7 +311,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 					}
 
 				} catch (HL7Exception he) {
-					exList.add(new ProfileNotHL7CompliantException("Field " + i
+					exList.add(new ProfileNotHL7CompliantException("Error: Field " + i
 							+ " not found in message"));
 				}
 			}
@@ -342,7 +342,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 					Type[] reps = segment.getField(i);
 					for (Type rep : reps) {
 						if (!rep.isEmpty()) {
-							HL7Exception e = new XElementPresentException("Field " + i + " in "
+							HL7Exception e = new XElementPresentException("Error: Field " + i + " in "
 									+ segment.getName()
 									+ " appears in the message but not in the profile");
 							exList.add(e);
@@ -384,7 +384,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
         // check constant value
         if (value != null && value.length() > 0) {
             if (!encoded.equals(value))
-                exList.add(new ProfileNotFollowedException("'" + encoded
+                exList.add(new ProfileNotFollowedException("Error: '" + encoded
                         + "' doesn't equal constant value of '" + value + "'"));
         }
     }
@@ -392,7 +392,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
     protected void checkLength(long length, String name, String encoded, List<HL7Exception> exList) {
         // check length
         if (encoded.length() > length)
-            exList.add(new ProfileNotFollowedException("The type " + name
+            exList.add(new ProfileNotFollowedException("Warn: The type " + name
                     + " has length " + encoded.length() + " which exceeds max of "
                     + length));
     }
@@ -401,7 +401,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
         // check datatype
         String typeName = type.getName();
         if (!(type instanceof Varies || typeName.equals(dataType))) {
-            exList.add(new ProfileNotHL7CompliantException("HL7 datatype " + typeName
+            exList.add(new ProfileNotHL7CompliantException("Error: HL7 datatype " + typeName
                     + " doesn't match profile datatype " + dataType));
         }
     }
@@ -415,7 +415,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 		HL7Exception e = null;
 		String encoded = PipeParser.encode(type, this.enc);
 		if (encoded.length() > maxLength) {
-			e = new ProfileNotFollowedException("Length of " + encoded.length()
+			e = new ProfileNotFollowedException("Error: Length of " + encoded.length()
 					+ " exceeds maximum of " + maxLength);
 		}
 		return e;
@@ -433,7 +433,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 	protected void testUsage(String encoded, String usage, String name, List<HL7Exception> exList) {
 		if (usage.equalsIgnoreCase("R")) {
 			if (encoded.length() == 0)
-				exList.add(new ProfileNotFollowedException("Required element " + name + " is missing"));
+				exList.add(new ProfileNotFollowedException("Error: Required element " + name + " is missing"));
 		} else if (usage.equalsIgnoreCase("RE")) {
 			// can't test anything
 		} else if (usage.equalsIgnoreCase("O")) {
@@ -444,7 +444,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 			// can't test anything
 		} else if (usage.equalsIgnoreCase("X")) {
 			if (encoded.length() > 0)
-				exList.add(new XElementPresentException("Element \"" + name
+				exList.add(new XElementPresentException("Warn: Element \"" + name
 						+ "\" is present but specified as not used (X)"));
 		} else if (usage.equalsIgnoreCase("B")) {
 			// can't test anything
@@ -488,16 +488,13 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 		}
 
 		if (store == null) {
-			log.info(
-					"Not checking code {}: no code store was found for profile {} code system {}",
-					new Object[] { code, profileID, codeSystem });
+			exList.add(new ProfileNotFollowedException("Warn: Not checking code '"+code+"': no code store was found for profile "+profileID+" code system "+codeSystem));
 		} else {
 			if (!store.knowsCodes(codeSystem)) {
 				// Inject checking for LN and SCT
 				testCodeAgainstTerminologyServer(codeSystem, code, text, exList);
 			} else if (!store.isValidCode(codeSystem, code)) {
-				exList.add(new ProfileNotFollowedException("Code '" + code + "' not found in table "
-						+ codeSystem + ", profile " + profileID));
+				exList.add(new ProfileNotFollowedException("Warn: Code '"+code+"' not found in table "+codeSystem+", profile "+profileID));
 			}
 		}
 	}
@@ -505,29 +502,32 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 	protected void testCodeAgainstTerminologyServer(String codeSystem, String code, String text, List<HL7Exception> exList) {
 		String fhirOp = "";
 		if (codeSystem.equals("LN")) {
-			fhirOp = "/CodeSystem/$lookup?system=http://loinc.org&code=" + code;
+			fhirOp = "/CodeSystem/$lookup?system=http://loinc.org&code="+code;
 			if (restClient.doesCodeExist(fhirOp)) {
 				if (text != null) {
 					if (!restClient.doesTextMatchDisplayName(fhirOp, text)) {
-						log.warn("Text in message: '{}' does not match text for code: {} in code system: {}", text, code, codeSystem);
+						//log.warn("Text in message: '{}' does not match text for code: {} in code system: {}", text, code, codeSystem);
+						exList.add(new ProfileNotFollowedException("Warn: Text in message: '"+text+"' does not match text for code: "+code+" in code system: "+codeSystem));
 					}
 				}
 			} else {
-				exList.add(new ProfileNotFollowedException("Code: ''" + code + "' not found in code system: " + codeSystem));
+				exList.add(new ProfileNotFollowedException("Warn: Code: '"+code+"' not found in code system: "+codeSystem));
 			}
 		} else if (codeSystem.equals("SCT")) {
-			fhirOp = "/CodeSystem/$lookup?system=http://snomed.info/sct&code=" + code;
+			fhirOp = "/CodeSystem/$lookup?system=http://snomed.info/sct&code="+code;
 			if (restClient.doesCodeExist(fhirOp)) {
 				if (text != null) {
 					if (!restClient.doesTextMatchDisplayName(fhirOp, text)) {
-						log.warn("Text in message: '{}' does not match text for code: {} in code system: {}", text, code, codeSystem);
+						//log.warn("Text in message: '{}' does not match text for code: {} in code system: {}", text, code, codeSystem);
+						exList.add(new ProfileNotFollowedException("Warn: Text in message: '"+text+"' does not match text for code: "+code+" in code system: "+codeSystem));
 					}
 				}
 			} else {
-				exList.add(new ProfileNotFollowedException("Code: ''" + code + "' not found in code system: " + codeSystem));
+				exList.add(new ProfileNotFollowedException("Warn: Code: '"+code+"' not found in code system: "+codeSystem));
 			}
 		} else {
-			log.warn("Not checking code {}: Don't have a details for code system {}", code, codeSystem);
+			//log.warn("Not checking code {}: Don't have a details for code system {}", code, codeSystem);
+			exList.add(new ProfileNotFollowedException("Warn: Not checking code '"+code+"': Don't have a details for code system "+codeSystem));
 		}
 	} 
 
@@ -559,13 +559,13 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 							exList.addAll(doTestComponent(child, childProfile, profileID, validateChildren));
 						} catch (DataTypeException de) {
 							exList.add(new ProfileNotHL7CompliantException(
-									"More components in profile than allowed in message: "
+									"Error: More components in profile than allowed in message: "
 											+ de.getMessage()));
 						}
 					}
 					checkExtraComponents(comp, profile.getComponents(), exList);
 				} else {
-					exList.add(new ProfileNotHL7CompliantException("A field has type primitive "
+					exList.add(new ProfileNotHL7CompliantException("Error: A field has type primitive "
 							+ type.getClass().getName() + " but the profile defines components"));
 				}
 			}
@@ -597,7 +597,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 							exList.addAll(testType(child, childProfile, null, profileID));
 						} catch (DataTypeException de) {
 							exList.add(new ProfileNotHL7CompliantException(
-									"More subcomponents in profile than allowed in message: "
+									"Error: More subcomponents in profile than allowed in message: "
 											+ de.getMessage()));
 						}
 					}
@@ -605,7 +605,7 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 
                 checkExtraComponents(comp, profile.getSubComponents(), exList);
 			} else {
-				exList.add(new ProfileNotFollowedException("A component has primitive type "
+				exList.add(new ProfileNotFollowedException("Error: A component has primitive type "
 						+ type.getClass().getName() + " but the profile defines subcomponents"));
 			}
 		}
@@ -624,13 +624,13 @@ public class ProfileValidator extends HapiContextSupport implements Validator {
 					extra.append(s).append(enc.getComponentSeparator());
 				}
 			} catch (DataTypeException de) {
-				throw new ProfileException("Problem testing against profile", de);
+				throw new ProfileException("Error: Problem testing against profile", de);
 			}
 		}
 
 		if (extra.length() > 0) {
 			exList.add(new XElementPresentException(
-					"The following components are not defined in the profile: " + extra.toString()));
+					"Error: The following components are not defined in the profile: " + extra.toString()));
 		}
 
 	}

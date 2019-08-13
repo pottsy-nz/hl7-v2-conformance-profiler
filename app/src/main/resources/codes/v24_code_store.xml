@@ -1169,6 +1169,14 @@
 		<tableElement order="25" code="HL70128" description="Allergy severity" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
 		<tableElement order="26" code="HL70286" description="Provider role" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
 		<tableElement order="27" code="HL70162" description="Route administration" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="28" code="AMT" description="Australian Medicines Terminology" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+        <tableElement order="29" code="EAN" description="GTIN product code" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+        <tableElement order="30" code="TGA" description="Therapeutic Good Authority codes" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+        <tableElement order="31" code="mims-codes" description="MIMS integrated" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="32" code="MIMS-UNITS" description="MIMS Units of measurement" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="33" code="MIMS-FORM" description="MIMS Drug Form code" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="34" code="MIMS-GENCODE" description="MIMS Generic code" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
+		<tableElement order="35" code="PBS" description="PBS Medicines Item Codes" displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="2.17.4" />
 	</hl7table>
 	<hl7table id="0411" name="Supplemental Service Information Values" codesys="HL7 Defined Codes - HL7nnn" type="USER">
 		<tableElement order="1" code="..." description="No suggested values&lt;p&gt;Individual implementations may use vocabularies such as the SNOMED DICOM Micro-glossary (SDM) or private (local) entries." displayName="" source="User" usage="Optional" Creator="MWB Import" Date="14/09/2008" instruction="4.5.3.47" />

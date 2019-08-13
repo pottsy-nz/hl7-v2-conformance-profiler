@@ -36,7 +36,7 @@ public class ProfileSourceCodeGenerator
     public static void printUsage()
     {
         logger.info("Usage: java ProfileSourceCodeGenerator hl7.<version>.<message-type>.<event-type>");
-        logger.info("e.g. java -cp \"target/hl7v2-1.0-SNAPSHOT.jar;target/dependency/*\" au.gov.digitalhealth.hl7v2.ProfileSourceCodeGenerator hl7.v24.ref.i12");
+        logger.info("e.g. java -cp \"target/hl7v2-1.1-SNAPSHOT.jar;target/dependency/*\" au.gov.digitalhealth.hl7v2.ProfileSourceCodeGenerator hl7.v24.ref.i12");
     }
 
     public static void main( String [] args )
@@ -57,7 +57,7 @@ public class ProfileSourceCodeGenerator
             Properties prop = new Properties();
             prop.load(input);
 
-            logger.info("*** Starting Profile Source Code Generator - "+args[0]+" ***");
+            logger.info("<--- Starting Profile Source Code Generator - "+args[0]+" --->");
 
             // get properties
             String[] split = args[0].split("\\.");
@@ -90,6 +90,6 @@ public class ProfileSourceCodeGenerator
             e.printStackTrace();
         }
 
-        logger.info( "*** Finished Profile Source Code Generator - "+args[0]+" ***");
+        logger.info( "<--- Finished Profile Source Code Generator - "+args[0]+" --->");
     }
 }

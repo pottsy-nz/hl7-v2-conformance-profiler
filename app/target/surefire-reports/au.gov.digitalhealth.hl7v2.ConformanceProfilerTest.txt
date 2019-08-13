@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: au.gov.digitalhealth.hl7v2.ConformanceProfilerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s - in au.gov.digitalhealth.hl7v2.ConformanceProfilerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in au.gov.digitalhealth.hl7v2.ConformanceProfilerTest

@@ -42,7 +42,7 @@ public class ConformanceProfiler {
     public static void printUsage() {
         logger.info("Usage: java ConformanceProfiler hl7.<version>.<message-type>.<event-type>");
         logger.info(
-                "e.g. java -cp \"target/hl7v2-1.0-SNAPSHOT.jar;target/dependency/*\" au.gov.digitalhealth.hl7v2.ConformanceProfiler hl7.v231.mdm.t02 \"");
+                "e.g. java -cp \"target/hl7v2-1.1-SNAPSHOT.jar;target/dependency/*\" au.gov.digitalhealth.hl7v2.ConformanceProfiler hl7.v231.mdm.t02 \"");
     }
 
     public static String readFileDataAsString(String fileName) throws Exception {
@@ -95,15 +95,13 @@ public class ConformanceProfiler {
             // read HL7 from file
             String message = readFileDataAsString(hl7DataFilePath);
 
-            // setup context, but disable validation during parsing
+            // setup context, but disable validation during parsing as we will validate in next step
             HapiContext context = new DefaultHapiContext();
             context.getParserConfiguration().setValidating(false);
 
-            // associate the HapiContext with a custom model class factory to use it
+            // associate the HapiContext with a custom model class factory and parser
             ModelClassFactory cmf = new CustomModelClassFactory("au.gov.digitalhealth.hl7v2.model");
             context.setModelClassFactory(cmf);
-
-            // disable parsing validation as we will validate in next step
             Parser parser = context.getPipeParser();
 
             // parse the HL7 message from the file data
@@ -115,7 +113,7 @@ public class ConformanceProfiler {
             profileValidator.setCodeStore(profileCodeStore);
             profileValidator.setRestClient(restClient);
 
-            List<HL7Exception> obxExceptions = new ArrayList<HL7Exception>();
+            List<HL7Exception> exceptions = new ArrayList<HL7Exception>();
 
             // due to various datatypes for OBX-5 not known till runtime need to process differently
             // needs factoring
@@ -128,11 +126,11 @@ public class ConformanceProfiler {
                 if (valueType.toString().equals("ED")) {
                     Varies variesObject = (Varies) seg.getField(5, 0);
                     ca.uhn.hl7v2.model.v231.datatype.ED encapsuledData = (ca.uhn.hl7v2.model.v231.datatype.ED) variesObject.getData(); 
-                    profileValidator.testCodeAgainstTable("OBX-5(2)", "HL70191", encapsuledData.getTypeOfData().toString(), "", obxExceptions);
-                    profileValidator.testCodeAgainstTable("OBX-5(3)", "HL70291", encapsuledData.getDataSubtype().toString(), "", obxExceptions);
-                    profileValidator.testCodeAgainstTable("OBX-5(4)", "HL70299", encapsuledData.getEncoding().toString(), "", obxExceptions);
+                    profileValidator.testCodeAgainstTable("OBX-5(2)", "HL70191", encapsuledData.getTypeOfData().toString(), "", exceptions);
+                    profileValidator.testCodeAgainstTable("OBX-5(3)", "HL70291", encapsuledData.getDataSubtype().toString(), "", exceptions);
+                    profileValidator.testCodeAgainstTable("OBX-5(4)", "HL70299", encapsuledData.getEncoding().toString(), "", exceptions);
                 } else {
-                    obxExceptions.add(new ProfileNotFollowedException("OBX value type must be ED"));
+                    exceptions.add(new ProfileNotFollowedException("Error: OBX value type must be ED"));
                 }
             } 
 
@@ -147,28 +145,34 @@ public class ConformanceProfiler {
                 if (valueType.toString().equals("ED")) {
                     Varies variesObject = (Varies) seg.getField(5, 0);
                     ca.uhn.hl7v2.model.v24.datatype.ED encapsuledData = (ca.uhn.hl7v2.model.v24.datatype.ED) variesObject.getData(); 
-                    profileValidator.testCodeAgainstTable("OBX-5(2)", "HL70191", encapsuledData.getTypeOfData().toString(), "", obxExceptions);
-                    profileValidator.testCodeAgainstTable("OBX-5(3)", "HL70291", encapsuledData.getDataSubtype().toString(), "", obxExceptions);
-                    profileValidator.testCodeAgainstTable("OBX-5(4)", "HL70299", encapsuledData.getEncoding().toString(), "", obxExceptions);
+                    profileValidator.testCodeAgainstTable("OBX-5(2)", "HL70191", encapsuledData.getTypeOfData().toString(), "", exceptions);
+                    profileValidator.testCodeAgainstTable("OBX-5(3)", "HL70291", encapsuledData.getDataSubtype().toString(), "", exceptions);
+                    profileValidator.testCodeAgainstTable("OBX-5(4)", "HL70299", encapsuledData.getEncoding().toString(), "", exceptions);
                 }
             } 
 
             // validate the rest of the message
-            HL7Exception[] errors = profileValidator.validate(msg, ourConformanceProfile.getMessage());
+            HL7Exception[] validationExceptions = profileValidator.validate(msg, ourConformanceProfile.getMessage());
 
-            // display all the validation errors that are generated.
+            // concate and display all exceptions that are generated
             logger.info("--------------------------------------------");
-            int totalErrors = errors.length + obxExceptions.size();
-            logger.info("Found: " + totalErrors + " errors");
-
-            for (HL7Exception hl7Exception : errors) {
-                logger.error(hl7Exception);
+            for (HL7Exception hl7Exception : validationExceptions) {
+                exceptions.add(hl7Exception);
             }
-
-            for (HL7Exception hl7Exception : obxExceptions) {
-                logger.error(hl7Exception);
+            logger.info("Found: " + exceptions.size() + " exceptions");
+            int errorCount = 0;
+            int warnCount = 0;
+            for (HL7Exception hl7Exception : exceptions) {
+                if (hl7Exception.toString().startsWith("ca.uhn.hl7v2.conf.check.ProfileNotFollowedException: Warn")) {
+                    logger.warn(hl7Exception);
+                    warnCount++;
+                } else {
+                    logger.error(hl7Exception);
+                    errorCount++;
+                }
             }
-
+            logger.info("Found: " + warnCount + " warnings");
+            logger.info("Found: " + errorCount + " errors");
             logger.info("--------------------------------------------");
         } catch (Exception e) {
             e.printStackTrace();
